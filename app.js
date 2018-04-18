@@ -7,6 +7,7 @@ var logger = require('morgan');
 
 var config = require('./config');
 
+var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/authenticate');
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 mongoose.connect(config.database);
 mongoose.Promise = global.Promise;
 
+app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/authenticate', authRouter);
 
