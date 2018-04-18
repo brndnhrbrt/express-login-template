@@ -35,16 +35,13 @@ exports.tokenAuth = function(req, res, next) {
             if(error) {
                 res.json({ success: false, error: error, message: 'error verifying token' });
             } else if(decoded) {
-                console.log(1);
                 User.findOne({ username: decoded.username }, function(error, user) {
-                    console.log(2);
                     if(error) {
                         return res.json({ success: false, error: error, message: 'could not fetch user' });
                     } else if(!user) {
                         return res.json({ success: false, error: error, message: 'could not fetch user' });
                     } else {
                         req.user = user;
-                        console.log(3);
                         next();
                     }
                 });

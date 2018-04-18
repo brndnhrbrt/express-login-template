@@ -10,8 +10,6 @@ router.post('/register', usersController.register);
 
 router.use(authController.tokenAuth);
 
-console.log(4);
-
 router.get('/userInfo', usersController.userinfo);
 
 module.exports = router;
