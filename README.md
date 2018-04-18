@@ -38,7 +38,7 @@ requires username password and repeatPassword
 
 #### login user
 
-requires username and password
+requires username and password.
 returns token
 
 ```
